@@ -1,42 +1,52 @@
+/* استيراد خطوط من Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
 :root {
-    --primary-color: #4CAF50;
-    --secondary-color: #333;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --hover-color: #45a049;
+    --primary-color: #4CAF50; /* اللون الأخضر */
+    --secondary-color: #2C3E50; /* اللون الأزرق الداكن */
+    --background-color: #F4F7F6; /* لون الخلفية الفاتح */
+    --text-color: #333; /* لون النصوص */
+    --hover-color: #45a049; /* لون التفعيل */
+    --gradient-color: linear-gradient(135deg, #4CAF50 0%, #2C3E50 100%); /* تدرج لوني */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل بسيط */
+    --transition: all 0.3s ease; /* انتقال سلس */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Tajawal', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: right;
+    line-height: 1.6;
 }
 
 header {
-    background-color: var(--primary-color);
+    background: var(--gradient-color);
     color: white;
-    padding: 20px 0;
+    padding: 60px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 header p {
-    margin: 5px 0 0;
+    margin: 10px 0 0;
     font-size: 1.2rem;
+    opacity: 0.9;
 }
 
 nav {
     background-color: var(--secondary-color);
-    padding: 10px;
+    padding: 15px;
     text-align: center;
+    box-shadow: var(--shadow);
 }
 
 nav ul {
@@ -45,18 +55,21 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: var(--transition);
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: var(--hover-color);
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
 }
 
 nav ul li a i {
@@ -64,40 +77,54 @@ nav ul li a i {
 }
 
 section {
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 section h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
+    font-size: 2.5rem;
+    color: var(--secondary-color);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .grades-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
 }
 
 .grade-card {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
 }
 
 .grade-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .grade-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--secondary-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .grade-card ul {
@@ -106,18 +133,24 @@ section h2 {
 }
 
 .grade-card ul li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .grade-card ul li a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--background-color);
 }
 
 .grade-card ul li a:hover {
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(10px);
 }
 
 .grade-card ul li a i {
@@ -128,42 +161,117 @@ footer {
     background-color: var(--secondary-color);
     color: white;
     text-align: center;
-    padding: 15px 0;
-    margin-top: 30px;
+    padding: 20px 0;
+    margin-top: 50px;
+    box-shadow: var(--shadow);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
 }
 
 /* تحسين عرض الفيديوهات */
 .video-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px;
     padding: 20px;
 }
 
 .video-card {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
 }
 
 .video-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .video-card video {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 0 0;
 }
 
 .video-card h3 {
-    padding: 15px;
+    padding: 20px;
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--secondary-color);
     text-align: center;
+}
+
+/* تصميم النافذة المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    text-align: right;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#uploadForm label {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+#uploadForm input, #uploadForm button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#uploadForm button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#uploadForm button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
 }
